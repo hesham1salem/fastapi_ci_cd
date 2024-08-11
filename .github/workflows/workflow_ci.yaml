@@ -1,4 +1,4 @@
-name: test
+name: test deploy
 
 on:
   push:
@@ -15,4 +15,15 @@ jobs:
       - name: install deps
         run: pip install -r requirements.txt
       - name: test
-        run: pytest 
+        run: pytest
+  deploy:
+    runs-on: my-runner
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: deploy
+        run: killall fastapi |true
+      - name: run
+        run: fastapi run& 
+
