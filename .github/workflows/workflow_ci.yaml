@@ -17,7 +17,7 @@ jobs:
       - name: test
         run: pytest
   deploy:
-    runs-on: heshamwakeb
+    runs-on: my-runner
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
